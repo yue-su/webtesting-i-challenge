@@ -40,5 +40,13 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
+  if (item.enhancement === 0) {
+    return item
+  } else {
+    const enhencementLevel = item.enhancement.toString()
+    return {
+      ...item,
+      name: `[+${enhencementLevel}] ${item.name}`
+    }
+  }
 }

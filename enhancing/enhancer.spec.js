@@ -1,3 +1,4 @@
+
 const enhancer = require("./enhancer.js")
 // test away!
 
@@ -68,5 +69,17 @@ describe("enhancer", () => {
              enhancement: 17,
            })
        })
-   }) 
+    })
+   
+    describe("get", () => {
+         const item = { name: "plot", durability: 30, enhancement: 18 }
+        const getItem = enhancer.get(item)
+        
+        expect(getItem).toEqual({
+          name: "[+18] plot",
+          durability: 30,
+          enhancement: 18,
+        })
+    
+    })
 })
